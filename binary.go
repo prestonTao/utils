@@ -68,3 +68,15 @@ func BytesToUint16(b []byte) uint16 {
 	binary.Read(bytesBuffer, binary.LittleEndian, &tmp)
 	return tmp
 }
+
+/*
+	高位补零
+*/
+func ComplementHighPositionZero(bs *[]byte, n int) *[]byte {
+	if len(*bs) >= n {
+		return bs
+	}
+	newbs := append(make([]byte, n-len(*bs), n-len(*bs)), *bs...)
+	// copy(newbs[n-len(*bs)], *bs)
+	return &newbs
+}
