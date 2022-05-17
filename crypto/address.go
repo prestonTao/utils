@@ -1,10 +1,10 @@
 package crypto
 
 import (
-	"chainim/core/utils/base58"
 	"bytes"
 	"crypto/sha256"
 
+	"github.com/prestonTao/utils/base58"
 	"golang.org/x/crypto/ripemd160"
 )
 
