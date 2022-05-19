@@ -72,11 +72,11 @@ func BytesToUint16(b []byte) uint16 {
 /*
 	高位补零
 */
-func ComplementHighPositionZero(bs *[]byte, n int) *[]byte {
+func FullHighPositionZero(bs *[]byte, n int) *[]byte {
 	if len(*bs) >= n {
 		return bs
 	}
-	newbs := append(make([]byte, n-len(*bs), n-len(*bs)), *bs...)
-	// copy(newbs[n-len(*bs)], *bs)
+	fullLength := n - len(*bs)
+	newbs := append(make([]byte, fullLength, fullLength), *bs...)
 	return &newbs
 }
