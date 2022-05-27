@@ -7,7 +7,6 @@ import (
 	"sync"
 
 	"github.com/syndtr/goleveldb/leveldb"
-	// "github.com/prestonTao/libp2parea/engine"
 )
 
 type LevelDB struct {
@@ -17,6 +16,9 @@ type LevelDB struct {
 }
 
 func CreateLevelDB(path string) (*LevelDB, error) {
+	// golog.InitLogger("logs/log.txt", 0, true)
+	// golog.Info("start %s", "log")
+	// golog.Infof("start %s\n", "log")
 	lldb := LevelDB{
 		path: path,
 		// db   *leveldb.DB
@@ -141,7 +143,8 @@ func (this *LevelDB) PrintAll() ([][]byte, error) {
 	iter := this.db.NewIterator(nil, nil)
 	for iter.Next() {
 		// engine.Log.Info("%s", hex.EncodeToString(iter.Key()))
-		fmt.Println(hex.EncodeToString(iter.Key()))
+		// fmt.Println(hex.EncodeToString(iter.Key()))
+		fmt.Println("key", hex.EncodeToString(iter.Key()), "value", hex.EncodeToString(iter.Value()))
 	}
 	iter.Release()
 	err := iter.Error()

@@ -11,10 +11,10 @@ func TestTimeToken(*testing.T) {
 	class2 := "2"
 	SetTimeToken(class1, time.Second)
 	SetTimeToken(class1, time.Second)
-	for i := 0; i < 100; i++ {
+	for i := 0; i < 1; i++ {
 		time.Sleep(time.Second / 2)
-		allow1 := GetTimeToken(class1)
-		allow2 := GetTimeToken(class2)
+		allow1 := GetTimeToken(class1, false)
+		allow2 := GetTimeToken(class2, false)
 		fmt.Println(allow1, allow2)
 	}
 }
